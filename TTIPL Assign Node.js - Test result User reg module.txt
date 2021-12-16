@@ -1,0 +1,1 @@
+16-12-2021 18:57:23 info: { controller: user, method: UserRegister, type: audit_log, status: 200, audit_table_id: 8 }
