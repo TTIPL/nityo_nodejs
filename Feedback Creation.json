@@ -1,0 +1,113 @@
+[
+    {
+        "id": "89fe6158faa970fd",
+        "type": "tab",
+        "label": "Feedback Creation",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d3cf451af948b3e0",
+        "type": "debug",
+        "z": "89fe6158faa970fd",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "912b135c6a7916ed",
+        "type": "http request",
+        "z": "89fe6158faa970fd",
+        "name": "feedbacks",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://localhost:2021/api/feedback/sendfeedback",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 480,
+        "y": 240,
+        "wires": [
+            [
+                "d3cf451af948b3e0"
+            ]
+        ]
+    },
+    {
+        "id": "3845f30104540ab9",
+        "type": "function",
+        "z": "89fe6158faa970fd",
+        "name": "",
+        "func": "\n\nmsg.payload = { \n    \"feedback\" : msg.feedback,\n    \"subject\" :msg.subject,\n    \"name\":msg.name,\n    \"email\":msg.email,\n    \"userid\":msg.userid\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 200,
+        "wires": [
+            [
+                "912b135c6a7916ed"
+            ]
+        ]
+    },
+    {
+        "id": "213b616a1ad417fc",
+        "type": "inject",
+        "z": "89fe6158faa970fd",
+        "name": "Feedback inputs",
+        "props": [
+            {
+                "p": "feedback",
+                "v": "oooooooo",
+                "vt": "str"
+            },
+            {
+                "p": "subject",
+                "v": "uuuuuuuuu",
+                "vt": "str"
+            },
+            {
+                "p": "name",
+                "v": "ssssssss",
+                "vt": "str"
+            },
+            {
+                "p": "email",
+                "v": "balaji@gmail.com",
+                "vt": "str"
+            },
+            {
+                "p": "userid",
+                "v": "4",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 260,
+        "y": 120,
+        "wires": [
+            [
+                "3845f30104540ab9"
+            ]
+        ]
+    }
+]

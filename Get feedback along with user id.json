@@ -1,0 +1,100 @@
+[
+    {
+        "id": "aa381c36d9933f87",
+        "type": "tab",
+        "label": "Get Feedback along with user id",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6f44564bec433662",
+        "type": "inject",
+        "z": "aa381c36d9933f87",
+        "name": "Make Request",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "2fb7e04822b25ba0"
+            ]
+        ]
+    },
+    {
+        "id": "2fb7e04822b25ba0",
+        "type": "change",
+        "z": "aa381c36d9933f87",
+        "name": "User Input",
+        "rules": [
+            {
+                "t": "set",
+                "p": "user_id",
+                "pt": "msg",
+                "to": "4",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "b76dd73c1e97a336"
+            ]
+        ]
+    },
+    {
+        "id": "b76dd73c1e97a336",
+        "type": "http request",
+        "z": "aa381c36d9933f87",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://localhost:2020/api/getuserfeedback/{{user_id}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 530,
+        "y": 260,
+        "wires": [
+            [
+                "4f22e10bb45817dd"
+            ]
+        ]
+    },
+    {
+        "id": "4f22e10bb45817dd",
+        "type": "debug",
+        "z": "aa381c36d9933f87",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 340,
+        "wires": []
+    }
+]
