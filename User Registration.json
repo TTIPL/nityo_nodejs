@@ -1,0 +1,47 @@
+[
+    {
+        "id": "5e07d8010daa509c",
+        "type": "inject",
+        "z": "bbc8ef5b1d37f587",
+        "name": "User Registration",
+        "props": [
+            {
+                "p": "name",
+                "v": "sam",
+                "vt": "str"
+            },
+            {
+                "p": "email",
+                "v": "sam@gmail.com",
+                "vt": "str"
+            },
+            {
+                "p": "password",
+                "v": "samkumar",
+                "vt": "str"
+            },
+            {
+                "p": "phone_number",
+                "v": "8220116556",
+                "vt": "str"
+            },
+            {
+                "p": "address",
+                "v": "chennai",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "f1dac01a5f426aa6"
+            ]
+        ]
+    }
+]
