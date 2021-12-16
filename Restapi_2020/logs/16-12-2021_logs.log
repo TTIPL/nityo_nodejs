@@ -1,0 +1,3 @@
+16-12-2021 18:57:19 info: { controller: getuserfeedback, method: getfeedback, type: audit_log, status: 200, audit_table_id: 4 }
+16-12-2021 18:57:23 info: { controller: user, method: UserRegister, type: audit_log, status: 200, audit_table_id: 8 }
+16-12-2021 18:57:28 info: { controller: feedback, method: feedback_session, type: audit_log, status: 200, audit_table_id: 6 }
